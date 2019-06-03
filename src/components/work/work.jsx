@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { getRepositories, getImages } from '../../actions/workActions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -12,10 +11,6 @@ class Work extends Component {
 			repos: [],
 			images: []
 		};
-	}
-	componentDidMount() {
-		this.props.getImages();
-		this.props.getRepositories();
 	}
 
 	render() {
@@ -63,4 +58,4 @@ Work.propTypes = {
 const mapStateToProps = (state) => ({
 	Work: state.work
 });
-export default connect(mapStateToProps, { getRepositories, getImages })(Work);
+export default connect(mapStateToProps, {})(Work);
