@@ -23,10 +23,24 @@
 }
 
 .contact-form {
-    max-width: 600px;
+    max-width: 800px;
     margin: auto;
     padding: 0 10px;
     overflow: hidden;
+}
+
+.alert-danger {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 16px 0;
+    border-radius: 3px 3px 3px 3px;
+    background: #FFBABA;
+    padding: 10px;
+    outline: none;
+    color: #D8000C;
+    transition: 0.5s;
+    text-align: center
 }
 
 .contact-form-text {
@@ -34,12 +48,13 @@
     width: 100%;
     box-sizing: border-box;
     margin: 16px 0;
-    border: 0;
-    background: #111;
+    border: 3px #fff solid;
+    background: #444;
     padding: 20px 40px;
     outline: none;
     color: #ddd;
-    transition: 0.5s;
+    transition: all 0.5s ease-out;
+    font-size: 1rem;
 }
 
 .contact-form-text:focus {

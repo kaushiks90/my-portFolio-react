@@ -1,77 +1,61 @@
-import React from "react";
-import project1 from "../../images/projects/project1.jpg";
-import project2 from "../../images/projects/project2.jpg";
-import project3 from "../../images/projects/project3.jpg";
-import project4 from "../../images/projects/project4.jpg";
-import project5 from "../../images/projects/project5.jpg";
+import React, { Component } from 'react';
+class Work extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			image: 'https://loremflickr.com/320/240',
+			sort: 'created: asc',
+			repos: [],
+			images: []
+		};
+	}
+	componentDidMount() {
+		const username = 'kaushiks90';
+		const { sort } = this.state;
 
-const Work = () => {
-  return (
-    <main id="work">
-      <h1 className="lg-heading">
-        My
-        <span className="text-secondary">Work</span>
-      </h1>
-      <h2 className="sm-heading">Check out some of my projects...</h2>
-      <div className="projects">
-        <div className="item">
-          <a href="#!">
-            <img src={project1} alt="Project" />
-          </a>
-          <a href="#!" className="btn-light">
-            <i className="fas fa-eye" /> Project
-          </a>
-          <a href="#!" className="btn-dark">
-            <i className="fab fa-github" /> Github
-          </a>
-        </div>
-        <div className="item">
-          <a href="#!">
-            <img src={project2} alt="Project" />
-          </a>
-          <a href="#!" className="btn-light">
-            <i className="fas fa-eye" /> Project
-          </a>
-          <a href="#!" className="btn-dark">
-            <i className="fab fa-github" /> Github
-          </a>
-        </div>
-        <div className="item">
-          <a href="#!">
-            <img src={project3} alt="Project" />
-          </a>
-          <a href="#!" className="btn-light">
-            <i className="fas fa-eye" /> Project
-          </a>
-          <a href="#!" className="btn-dark">
-            <i className="fab fa-github" /> Github
-          </a>
-        </div>
-        <div className="item">
-          <a href="#!">
-            <img src={project4} alt="Project" />
-          </a>
-          <a href="#!" className="btn-light">
-            <i className="fas fa-eye" /> Project
-          </a>
-          <a href="#!" className="btn-dark">
-            <i className="fab fa-github" /> Github
-          </a>
-        </div>
-        <div className="item">
-          <a href="#!">
-            <img src={project5} alt="Project" />
-          </a>
-          <a href="#!" className="btn-light">
-            <i className="fas fa-eye" /> Project
-          </a>
-          <a href="#!" className="btn-dark">
-            <i className="fab fa-github" /> Github
-          </a>
-        </div>
-      </div>
-    </main>
-  );
-};
+		fetch(`https://api.github.com/users/${username}/repos?sort=${sort}&per_page=100`)
+			.then((res) => res.json())
+			.then((data) => {
+				this.setState({ repos: data });
+			})
+			.catch((err) => console.log(err));
+
+		for (let i = 1; i < 100; i++) {
+			fetch(`http://www.splashbase.co/api/v1/images/${i}`)
+				.then((res) => res.json())
+				.then((data) => {
+					this.setState({ images: [ ...this.state.images, data.url ] });
+				})
+				.catch((err) => console.log(err));
+		}
+	}
+
+	render() {
+		const { repos, images } = this.state;
+		const repoItems = repos.map((repo, index) => (
+			<div key={repo.id} className="item">
+				<a href="#!">
+					<img src={images[index]} alt="Project" />
+				</a>
+				<a href={repo.html_url} className="btn-light" target="_blank" rel="noopener noreferrer">
+					<i className="fas fa-eye" /> {repo.name}
+				</a>
+				<a href="https://github.com/kaushiks90" className="btn-dark" target="_blank" rel="noopener noreferrer">
+					<i className="fab fa-github" /> Github
+				</a>
+			</div>
+		));
+		return (
+			<main id="work">
+				<h1 className="lg-heading">
+					My
+					<span className="text-secondary">Work</span>
+				</h1>
+				<h2 className="sm-heading">Check out some of my projects...</h2>
+				<div className="projects">{repoItems}</div>
+			</main>
+		);
+	}
+}
 
 export default Work;

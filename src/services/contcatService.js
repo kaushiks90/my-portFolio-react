@@ -1,0 +1,12 @@
+import http from "./httpService";
+import {
+    apiEndpoint
+} from "../config.json";
+
+
+export function sendEmail(contact) {
+    if (contact) {
+        console.log("Send Email");
+        return http.post(apiEndpoint + "/sendmail", contact);
+    }
+}
