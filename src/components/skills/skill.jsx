@@ -1,157 +1,86 @@
-import React from 'react';
+import React, { Component } from 'react';
+import SubSkill from './subSkill';
 import './skill.scss';
 
-const Skill = () => {
-	return (
-		<main id="skill">
-			<h1 className="lg-heading">
-				My
-				<span className="text-secondary">Skills</span>
-			</h1>
-			<div className="text-secondary-center">
-				<span className="text-secondary">
-					<i className="fab fa-microsoft" /> Microsoft Technologies
-				</span>
-			</div>
-
-			<ul>
-				<li>
-					<a className="list-item" href="#!">
-						C#
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						MVC
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						Web Api
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						.NetCore
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						Entity Framework
-					</a>
-				</li>
-			</ul>
-			<br />
-			<div className="text-secondary-center">
-				<span className="text-secondary">
-					<i className="fab fa-js" /> Javascript Frameworks
-				</span>
-			</div>
-			<ul>
-				<li>
-					<a className="list-item" href="#!">
-						Node Js
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						React Js
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						Jquery
-					</a>
-				</li>
-			</ul>
-			<br />
-			<div className="text-secondary-center">
-				<span className="text-secondary">
-					<i className="fas fa-database" /> Database
-				</span>
-			</div>
-			<ul>
-				<li>
-					<a className="list-item" href="#!">
-						SQL Server
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						Oracle
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						MongoDb
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						Postgress
-					</a>
-				</li>
-			</ul>
-			<br />
-			<div className="text-secondary-center">
-				<span className="text-secondary">
-					<i className="fas fa-cloud" /> Cloud
-				</span>
-			</div>
-			<ul>
-				<li>
-					<a className="list-item" href="#!">
-						AWS
-					</a>
-				</li>
-			</ul>
-			<br />
-			<div className="text-secondary-center">
-				<span className="text-secondary ">
-					<i className="fab fa-dochub" /> Devops
-				</span>
-			</div>
-			<ul>
-				<li>
-					<a className="list-item" href="#!">
-						Docker
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						CI/CD
-					</a>
-				</li>
-			</ul>
-			<br />
-			<div className="text-secondary-center">
-				<span className="text-secondary ">
-					<i className="fas fa-code-branch" /> SourceControl & Version Control
-				</span>
-			</div>
-			<ul>
-				<li>
-					<a className="list-item" href="#!">
-						VSTS
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						GIT
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						TFS
-					</a>
-				</li>
-				<li>
-					<a className="list-item" href="#!">
-						SVN
-					</a>
-				</li>
-			</ul>
-		</main>
-	);
-};
+class Skill extends Component {
+	state = {
+		skills: [
+			{
+				name: 'Microsoft',
+				values: [ 'C#', 'MVC', 'Web Api', '.NetCore', 'Entity Framework' ]
+			},
+			{
+				name: 'Javascript',
+				values: [ 'Node js', 'React js', 'Jquery' ]
+			},
+			{
+				name: 'Database',
+				values: [ 'SQL Server', 'Oracle', 'MongoDb', 'Postgress' ]
+			},
+			{
+				name: 'Cloud',
+				values: [ 'AWS' ]
+			},
+			{
+				name: 'Devops',
+				values: [ 'Docker', 'CI/CD' ]
+			},
+			{
+				name: 'SourceControl',
+				values: [ 'VSTS', 'GIT', 'TFS', 'SVN' ]
+			}
+		]
+	};
+	render() {
+		return (
+			<main id="skill">
+				<h1 className="lg-heading">
+					My
+					<span className="text-secondary">Skills</span>
+				</h1>
+				<div className="text-secondary-center">
+					<span className="text-secondary">
+						<i className="fab fa-microsoft" /> Microsoft Technologies
+					</span>
+				</div>
+				<SubSkill skills={this.state.skills} skillName="Microsoft" />
+				<br />
+				<div className="text-secondary-center">
+					<span className="text-secondary">
+						<i className="fab fa-js" /> Javascript Frameworks
+					</span>
+				</div>
+				<SubSkill skills={this.state.skills} skillName="Javascript" />
+				<br />
+				<div className="text-secondary-center">
+					<span className="text-secondary">
+						<i className="fa fa-database" /> Database
+					</span>
+				</div>
+				<SubSkill skills={this.state.skills} skillName="Database" />
+				<br />
+				<div className="text-secondary-center">
+					<span className="text-secondary">
+						<i className="fa fa-cloud" /> Cloud
+					</span>
+				</div>
+				<SubSkill skills={this.state.skills} skillName="Cloud" />
+				<br />
+				<div className="text-secondary-center">
+					<span className="text-secondary ">
+						<i className="fab fa-dochub" /> Devops
+					</span>
+				</div>
+				<SubSkill skills={this.state.skills} skillName="Devops" />
+				<br />
+				<div className="text-secondary-center">
+					<span className="text-secondary ">
+						<i className="fas fa-code-branch" /> SourceControl & Version Control
+					</span>
+				</div>
+				<SubSkill skills={this.state.skills} skillName="SourceControl" />
+			</main>
+		);
+	}
+}
 export default Skill;

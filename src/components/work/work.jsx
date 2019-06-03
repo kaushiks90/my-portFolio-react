@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { getRepositories, getImages } from '../../actions/workActions';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 class Work extends Component {
 	constructor(props) {
 		super(props);
@@ -10,32 +14,25 @@ class Work extends Component {
 		};
 	}
 	componentDidMount() {
-		const username = 'kaushiks90';
-		const { sort } = this.state;
-
-		fetch(`https://api.github.com/users/${username}/repos?sort=${sort}&per_page=100`)
-			.then((res) => res.json())
-			.then((data) => {
-				this.setState({ repos: data });
-			})
-			.catch((err) => console.log(err));
-
-		for (let i = 1; i < 100; i++) {
-			fetch(`http://www.splashbase.co/api/v1/images/${i}`)
-				.then((res) => res.json())
-				.then((data) => {
-					this.setState({ images: [ ...this.state.images, data.url ] });
-				})
-				.catch((err) => console.log(err));
-		}
+		this.props.getImages();
+		this.props.getRepositories();
 	}
 
 	render() {
-		const { repos, images } = this.state;
+		const { repositories: repos, projectImages: images } = this.props.Work;
+
 		const repoItems = repos.map((repo, index) => (
 			<div key={repo.id} className="item">
 				<a href="#!">
-					<img src={images[index]} alt="Project" />
+					<img
+						src={images[index]}
+						alt="Project"
+						onError={(e) => {
+							e.target.onerror = null;
+							e.target.src = images[index];
+						}}
+					/>
+					{/* <img src={images[index]} alt="Project" /> */}
 				</a>
 				<a href={repo.html_url} className="btn-light" target="_blank" rel="noopener noreferrer">
 					<i className="fas fa-eye" /> {repo.name}
@@ -58,4 +55,12 @@ class Work extends Component {
 	}
 }
 
-export default Work;
+Work.propTypes = {
+	getRepositories: PropTypes.func.isRequired,
+	getImages: PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => ({
+	Work: state.work
+});
+export default connect(mapStateToProps, { getRepositories, getImages })(Work);

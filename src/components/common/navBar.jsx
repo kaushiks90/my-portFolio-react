@@ -70,7 +70,6 @@ class NavBar extends Component {
 		classes.classMenuBranding = 'menu-branding';
 		classes.classNavItem = 'nav-item';
 		this.setState({ classes });
-		console.log('test');
 	}
 	render() {
 		return (

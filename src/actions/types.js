@@ -1,0 +1,3 @@
+export const GET_IMAGES = 'GET_IMAGES';
+export const GET_REPOSITORIES = 'GET_REPOSITORIES';
+export const GET_SKILLS = 'GET_SKILLS';
