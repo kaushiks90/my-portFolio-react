@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 class Work extends Component {
 	constructor(props) {
@@ -49,11 +48,6 @@ class Work extends Component {
 		);
 	}
 }
-
-Work.propTypes = {
-	getRepositories: PropTypes.func.isRequired,
-	getImages: PropTypes.func.isRequired
-};
 
 const mapStateToProps = (state) => ({
 	Work: state.work

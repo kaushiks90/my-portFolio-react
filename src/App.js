@@ -10,6 +10,8 @@ import Work from './components/work/work';
 import Skill from './components/skills/skill';
 import ContactMe from './components/contact/contactMe';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Analytics from 'react-router-ga';
 
 class App extends Component {
 	componentDidMount() {
@@ -21,16 +23,23 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Headers />
-				<Switch>
-					<Route path="/home" component={Home} /> <Route path="/about" component={About} />
-					<Route path="/contactMe" component={ContactMe} /> <Route path="/work" component={Work} />
-					<Route path="/skill" component={Skill} /> <Redirect from="/" exact to="/home" />
-				</Switch>
+				<Analytics id="UA-940883235-9">
+					<Switch>
+						<Route path="/home" component={Home} /> <Route path="/about" component={About} />
+						<Route path="/contactMe" component={ContactMe} /> <Route path="/work" component={Work} />
+						<Route path="/skill" component={Skill} /> <Redirect from="/" exact to="/home" />
+					</Switch>
+				</Analytics>
 				<Footer> </Footer>
 			</div>
 		);
 	}
 }
+App.propTypes = {
+	getRepositories: PropTypes.func.isRequired,
+	getImages: PropTypes.func.isRequired
+};
+
 const mapStateToProps = (state) => ({
 	Work: state.work
 });
