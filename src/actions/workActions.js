@@ -4,8 +4,13 @@ import {
     GET_IMAGES
 } from './types';
 
+import {
+    client_id as _client_id,
+    client_secret as _client_secret
+} from "../config/config"
+
 export const getRepositories = () => dispatch => {
-    axios.get(`https://api.github.com/users/kaushiks90/repos?per_page=100&sort=created: asc&client_id=21cb096363eae184e834&client_secret=3aba4cad9780fb21a3b7387550241dd3676081bb`)
+    axios.get(`https://api.github.com/users/kaushiks90/repos?per_page=100&sort=created:asc&client_id={_client_id}&client_secret={_client_secret}`)
         .then(
             res =>
             dispatch({
@@ -30,6 +35,7 @@ export const getImages = () => dispatch => {
     const action = {
         type: GET_IMAGES,
         payload: url
+
     }
     dispatch(action)
 
