@@ -5,7 +5,7 @@ import {
 } from './types';
 
 export const getRepositories = () => dispatch => {
-    axios.get(`https://api.github.com/users/kaushiks90/repos?per_page=100&sort=created: asc&client_id=21cb096363eae184e834&client_secret=fe5e9b3b7ced3e0efc2d5eb1d11fceb45f5b2b83`)
+    axios.get(`https://api.github.com/users/kaushiks90/repos?per_page=100&sort=created: asc&client_id=21cb096363eae184e834&client_secret=3aba4cad9780fb21a3b7387550241dd3676081bb`)
         .then(
             res =>
             dispatch({

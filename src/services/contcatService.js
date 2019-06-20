@@ -1,7 +1,7 @@
 import http from "./httpService";
 import {
     apiEndpoint
-} from "../config.json";
+} from "../config/keys"
 
 
 export function sendEmail(contact) {

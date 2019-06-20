@@ -23,7 +23,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<Headers />
-				<Analytics id="UA-940883235-9">
+				<Analytics id="UA-140883235-1">
 					<Switch>
 						<Route path="/home" component={Home} /> <Route path="/about" component={About} />
 						<Route path="/contactMe" component={ContactMe} /> <Route path="/work" component={Work} />

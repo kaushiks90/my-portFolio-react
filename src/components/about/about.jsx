@@ -15,40 +15,57 @@ const About = () => {
         <div className="bio">
           <h3 className="text-secondary">BIO</h3>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt
-            magni nam nisi quae vitae? Quod molestiae ipsa autem natus eum vel
-            ducimus nulla harum voluptatem eligendi! Unde, reiciendis?
-            Praesentium, laborum.
+            I have over 6 years of experience as a software engineer, and have
+            worked at both small startups and large organizations. While I'm a
+            proficient full-stack developer, my expertise is in building
+            scalable backend services (API services, stream processing,and async
+            mechanisms.
           </p>
         </div>
 
         <div className="job job-1">
-          <h3>123 Webshop</h3>
-          <h6>Full Stack Developer</h6>
+          <h3>The Taxback Group</h3>
+          <h5>C# Developer(AWS)</h5>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            perferendis totam enim. Nesciunt porro dolores expedita dolor
-            necessitatibus deserunt nemo.
+            Migrated a legacy application into Micro services Architecture.
+            Created a Mern Stack API website with Strapi CMS for Euro Money2020
+            Worked on RabbitMQ, Docker, AWS and CI/CD
           </p>
         </div>
 
         <div className="job job-2">
-          <h3>Designers ABC</h3>
-          <h6>Front End Developer</h6>
+          <h3>Infosys Limited</h3>
+          <h5>Technology Analyst</h5>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            perferendis totam enim. Nesciunt porro dolores expedita dolor
-            necessitatibus deserunt nemo.
+            Interfaced with business analysts, developers and technical support
+            to determine the best requirement specifications. Worked on Visual
+            Studio 2015 using Angular 2.0, MVC 5.0, and used Oracle 11g in the
+            backend.Implemented REST services using WCF. Implemented design
+            pattern, including experimentation and multiple iterations. Stored,
+            retrieved and manipulated data for close analysis of system
+            capabilities. Wrote maintainable and extensible code in a team
+            environment.
           </p>
         </div>
 
         <div className="job job-3">
-          <h3>Webworks</h3>
-          <h6>Graphic Designer</h6>
+          <h3>SSG COnsulting Private Limited</h3>
+          <h5>Software Engineer</h5>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            perferendis totam enim. Nesciunt porro dolores expedita dolor
-            necessitatibus deserunt nemo.
+            Designed ecommerce application components. Worked on Visual Studio
+            2012 using Web API and used Tsql Server 2012 in the backend. Used
+            Jquery and JavaScript extensively along with third party control
+            Kendo UI. Designed new product elements such as image recognition,
+            video, and device-to-device communication.
+          </p>
+        </div>
+
+        <div className="job job-4">
+          <h3>Wolknet Software Private Limited</h3>
+          <h5>Software Engineer</h5>
+          <p>
+            Worked in C# asp.net and TSQL Server. Designed and developed schema
+            data models
           </p>
         </div>
       </div>
